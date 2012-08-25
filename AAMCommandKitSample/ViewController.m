@@ -41,8 +41,6 @@
     UIView *iconContainer = [[UIView alloc]initWithFrame:CGRectMake(0,0,320,480)];
     [self.view addSubview:iconContainer];
     
-    
-    
     UIImageView *base_shadow = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"base_shadow"]];
     base_shadow.transform = CGAffineTransformMakeScale(0.01, 0.01);
     base_shadow.center = CGPointMake(160,240);
@@ -78,6 +76,11 @@
     binder.center = CGPointMake(160, 170);
     [iconContainer addSubview:binder];
     
+    /*
+     -----------------------------------------------
+     Command Creation
+     -----------------------------------------------
+     */
     NSArray *commands = @[
         //背景フェードイン
         [AAMAlphaCommand commandWithTarget:background
@@ -86,7 +89,7 @@
                                   duration:0.5
                                      delay:0
                                    options:0
-                             waitAnimation:YES],
+                             waitUntilDone:YES],
         //土台フェードイン
         [AAMAlphaCommand commandWithTarget:base_shadow
                                   from:0
@@ -94,7 +97,7 @@
                               duration:0.1
                                  delay:0
                                options:0
-                         waitAnimation:NO],
+                         waitUntilDone:NO],
         //土台拡大（フェードインと同時に)
         [AAMTransformCommand commandWithTarget:base_shadow
                                           from:CGAffineTransformMakeScale(0.8, 0.8)
@@ -102,7 +105,7 @@
                                       duration:0.1
                                          delay:0.0
                                        options:UIViewAnimationOptionCurveEaseOut
-                                 waitAnimation:YES],
+                                 waitUntilDone:YES],
     //土台がバネ的反動
     [AAMTransformCommand commandWithTarget:base_shadow
                                       from:CGAffineTransformMakeScale(1.1, 1.1)
@@ -110,7 +113,7 @@
                                   duration:0.2
                                      delay:0.0
                                    options:UIViewAnimationOptionCurveEaseOut
-                             waitAnimation:YES],
+                             waitUntilDone:YES],
     [AAMWaitCommand commandWithTimeInterval:0.1],
     //土台が競り上がる
     [AAMAnimationCommand commandWithDuration:0.4
@@ -260,7 +263,7 @@
                               duration:1.0
                                  delay:0
                                options:0
-                         waitAnimation:NO],
+                         waitUntilDone:NO],
         [LogCommand commandWithString:@"Animation Completed"]
     ];
     

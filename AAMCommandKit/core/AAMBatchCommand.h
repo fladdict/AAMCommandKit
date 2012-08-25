@@ -17,7 +17,8 @@
 -(id)initWithCommands:(NSArray*)theCommands;
 
 
-// Internam Method
+#pragma mark - internal methods for override
+
 -(void)_observeCommand:(AAMCommand*)theCommand;
 -(void)_unobserveCommand:(AAMCommand*)theCommand;
 

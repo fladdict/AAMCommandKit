@@ -11,6 +11,11 @@
 
 @class AAMCommand;
 
+/*
+ *  Class that holds Command instances while executig.
+ *  Used in AAMCommand Class.
+ *  Do not use this directly.
+ */
 @interface AAMCommandManager : NSObject
 
 +(id)sharedManager;

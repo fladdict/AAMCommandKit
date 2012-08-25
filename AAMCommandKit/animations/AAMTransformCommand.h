@@ -17,7 +17,7 @@
            duration:(NSTimeInterval)duration
               delay:(NSTimeInterval)delay
             options:(UIViewAnimationOptions)options
-      waitAnimation:(BOOL)wait;
+      waitUntilDone:(BOOL)wait;
 
 +(AAMTransformCommand*)commandWithTarget:(UIView*)target
                                  from:(CGAffineTransform)from
@@ -25,6 +25,6 @@
                              duration:(NSTimeInterval)duration
                                 delay:(NSTimeInterval)delay
                               options:(UIViewAnimationOptions)options
-                        waitAnimation:(BOOL)wait;
+                        waitUntilDone:(BOOL)wait;
 
 @end

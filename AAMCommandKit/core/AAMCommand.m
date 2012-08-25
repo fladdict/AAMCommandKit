@@ -11,6 +11,7 @@
 @implementation AAMCommand
 
 @synthesize delegate;
+@synthesize status;
 
 -(id)init{
     self = [super init];
@@ -54,7 +55,7 @@
     //[self _dispatchComplete] after execution.
 }
 
--(void)_tearDownCommand{
+-(void)_teardownCommand{
     [[AAMCommandManager sharedManager]unregisterCommand:self];
 }
 
@@ -68,7 +69,7 @@
     NSNotification *n = [NSNotification notificationWithName:AAMCommandDidCompleteNotification
                                                       object:self];
     [[NSNotificationCenter defaultCenter]postNotification:n];
-    [self _tearDownCommand];
+    [self _teardownCommand];
 }
 
 -(void)_dispatchCancel
@@ -80,7 +81,7 @@
     NSNotification *n = [NSNotification notificationWithName:AAMCommandDidCompleteNotification
                                                       object:self];
     [[NSNotificationCenter defaultCenter]postNotification:n];
-    [self _tearDownCommand];
+    [self _teardownCommand];
 }
 
 
@@ -95,6 +96,6 @@
                                                       object:self
                                                     userInfo:@{@"error":theError}];
     [[NSNotificationCenter defaultCenter]postNotification:n];
-    [self _tearDownCommand];
+    [self _teardownCommand];
 }
 @end

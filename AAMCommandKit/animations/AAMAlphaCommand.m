@@ -15,7 +15,7 @@
     NSTimeInterval _duration;
     NSTimeInterval _delay;
     UIViewAnimationOptions _options;
-    BOOL _waitAnimation;
+    BOOL _waitUntilDone;
 }
 
 -(id)initWithTarget:(UIView*)target
@@ -24,7 +24,7 @@
            duration:(NSTimeInterval)duration
               delay:(NSTimeInterval)delay
             options:(UIViewAnimationOptions)options
-      waitAnimation:(BOOL)wait
+      waitUntilDone:(BOOL)wait
 {
     self = [super init];
     if(self){
@@ -34,7 +34,7 @@
         _duration = duration;
         _delay = delay;
         _options = options;
-        _waitAnimation = wait;
+        _waitUntilDone = wait;
     }
     return self;
 }
@@ -45,9 +45,9 @@
                              duration:(NSTimeInterval)duration
                                 delay:(NSTimeInterval)delay
                               options:(UIViewAnimationOptions)options
-                        waitAnimation:(BOOL)wait
+                        waitUntilDone:(BOOL)wait
 {
-    return [[AAMAlphaCommand alloc]initWithTarget:target from:from to:to duration:duration delay:delay options:options waitAnimation:wait];
+    return [[AAMAlphaCommand alloc]initWithTarget:target from:from to:to duration:duration delay:delay options:options waitUntilDone:wait];
 }
 
 -(void)_executeCommand{
@@ -60,12 +60,12 @@
                          _target.alpha = _to;
                      }
                      completion:^(BOOL finished){
-                         if(_waitAnimation){
+                         if(_waitUntilDone){
                              [s _dispatchComplete];
                          }
                      }];
     
-    if(!_waitAnimation){
+    if(!_waitUntilDone){
         [self _dispatchComplete];
     }
 }

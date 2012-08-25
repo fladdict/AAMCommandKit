@@ -204,9 +204,9 @@
 		3D8C25F515E8DBED009EB99B /* AAMCommandKit */ = {
 			isa = PBXGroup;
 			children = (
+				3D8C260415E8DBED009EB99B /* core */,
 				3D8C25F615E8DBED009EB99B /* animations */,
 				3D8C25FD15E8DBED009EB99B /* commands */,
-				3D8C260415E8DBED009EB99B /* core */,
 			);
 			path = AAMCommandKit;
 			sourceTree = SOURCE_ROOT;
@@ -240,10 +240,10 @@
 		3D8C260415E8DBED009EB99B /* core */ = {
 			isa = PBXGroup;
 			children = (
-				3D8C260515E8DBED009EB99B /* AAMBatchCommand.h */,
-				3D8C260615E8DBED009EB99B /* AAMBatchCommand.m */,
 				3D8C260715E8DBED009EB99B /* AAMCommand.h */,
 				3D8C260815E8DBED009EB99B /* AAMCommand.m */,
+				3D8C260515E8DBED009EB99B /* AAMBatchCommand.h */,
+				3D8C260615E8DBED009EB99B /* AAMBatchCommand.m */,
 				3D8C260915E8DBED009EB99B /* AAMCommandManager.h */,
 				3D8C260A15E8DBED009EB99B /* AAMCommandManager.m */,
 				3D8C260B15E8DBED009EB99B /* AAMParallelCommand.h */,
